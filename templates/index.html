@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Recommender</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div id="particles-js" style="position: fixed; top: 0; left: 0; width: 100%; height: 100%; z-index: -1;"></div>
+    <div class="header">
+        <h1>Book Recommender</h1>
+        <p class="welcome-text">Discover great books based on your interests!</p>
+        <div class="search-bar">
+            <input type="text" id="book-search" placeholder="Enter book name..." class="form-control" autocomplete="off">
+            <button id="search-btn" class="btn btn-primary mt-2">Search</button>
+            <button id="random-btn" class="btn btn-secondary mt-2 ms-2" title="Pick a Random Book">
+                <i class="fas fa-dice"></i>
+            </button>
+        </div>
+        <div class="stats text-center mt-3">
+            <p>Currently featuring <span id="book-count">0</span> books in the system!</p>
+        </div>
+    </div>
+    <div class="container mt-5">
+        <div id="popular-books" class="carousel slide mb-4" data-bs-ride="carousel">
+            <div class="carousel-inner"></div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#popular-books" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#popular-books" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <div id="selected-book" class="text-center mb-4"></div>
+        <div class="row" id="book-list"></div>
+    </div>
+    <div class="footer">
+        <p>© 2023 Book Recommender. All rights reserved.</p>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+                "color": { "value": "#00ff00" },
+                "shape": { "type": "circle" },
+                "opacity": { "value": 0.5 },
+                "size": { "value": 3, "random": true },
+                "move": { "enable": true, "speed": 2, "direction": "none", "random": false }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": { "onhover": { "enable": true, "mode": "repulse" } }
+            }
+        });
+    </script>
+</body>
+</html>
